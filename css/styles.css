@@ -35,6 +35,7 @@
   border: 1px solid #778;
   border-radius: 5px;
   padding: 30px 20px;
+  box-shadow: 5px 10px 18px #888888;
 }
 
 .modal-close {
@@ -45,7 +46,6 @@
   position: absolute;
   right: 15px;
   top: 5px;
-  cursor: pointer;
 }
 
 .hidden {
@@ -66,11 +66,19 @@
   align-items: center;
 }
 
+.filter {
+  width: 20%;
+  padding: 0.5%;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  border: 1px solid #a2a7aa;
+}
+
 .grid-container {
   margin-top: -4%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-gap: 3rem;
+  grid-gap: 2.5rem;
 }
 
 .h1 {
@@ -121,9 +129,33 @@
   border: 1px solid #f4f4f4;
 }
 
-.phone, .full-address,.birthday{
+.phone,
+.full-address,
+.birthday {
   color: #abb0b2;
 }
-.full-address{
+
+.full-address {
   margin: 4% 0;
+}
+
+.arrow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
+}
+
+.leftArrow,
+.rightArrow {
+  background-color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.leftArrow:hover,
+.rightArrow:hover,
+.modal-close:hover {
+  cursor: pointer;
+  color: #abb0b2;
 }

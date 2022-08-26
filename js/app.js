@@ -10,6 +10,14 @@ const gridContainer = document.querySelector('.grid-container')
 const overlay = document.querySelector('.overlay')
 const modalContainer = document.querySelector('.modal-content')
 const modalClose = document.querySelector('.modal-close')
+const cardToFilter = document.getElementById('filter')
+
+/* Variables
+================================================================ */
+
+let cardIndex
+const firstCard = 0
+const lastCard = 11
 
 /* Fetch from the API
 ================================================================ */
@@ -59,6 +67,10 @@ function displayModal(index) {
   let date = new Date(dob.date)
 
   const modalHTML = `
+        <div class="arrow">
+          <button class="leftArrow">&#10094;</button>
+          <button class="rightArrow">&#10095;</button>
+        </div>
         <img class="avatar" src="${picture.large}" alt="${name.first} ${name.last}"/>
         <div class="text-container">
             <h2 class="name">${name.first} ${name.last}</h2>
@@ -73,18 +85,49 @@ function displayModal(index) {
     `
   overlay.classList.remove('hidden')
   modalContainer.innerHTML = modalHTML
+
+  document.querySelector('.leftArrow').addEventListener('click', (e) => {
+    if (cardIndex > firstCard) {
+      cardIndex--
+      displayModal(cardIndex)
+    } else if (cardIndex === firstCard) {
+      displayModal(firstCard)
+    }
+  })
+
+  document.querySelector('.rightArrow').addEventListener('click', (e) => {
+    if (cardIndex < lastCard) {
+      cardIndex++
+      displayModal(cardIndex)
+    } else if (cardIndex === lastCard) {
+      displayModal(lastCard)
+    }
+  })
 }
 
 gridContainer.addEventListener('click', (e) => {
   //make sure the click is not on the gridcontainer itself
   if (e.target !== gridContainer) {
     const card = e.target.closest('.card')
-    const index = card.getAttribute('data-index')
+    cardIndex = card.getAttribute('data-index')
 
-    displayModal(index)
+    displayModal(cardIndex)
   }
 })
 
 modalClose.addEventListener('click', () => {
   overlay.classList.add('hidden')
+})
+
+cardToFilter.addEventListener('keyup', (e) => {
+  const names = document.getElementsByClassName('name')
+  const filter = cardToFilter.value.toUpperCase()
+  const staff = [...names]
+  staff.forEach((employee) => {
+    if (employee.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      employee.closest('.card').style.display = 'flex'
+    } else {
+      employee.closest('.card').style.display = 'none'
+    }
+  })
 })
