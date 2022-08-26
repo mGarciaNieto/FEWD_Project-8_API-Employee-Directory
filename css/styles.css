@@ -18,17 +18,18 @@
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(100, 100, 100, 0.4);
+  display: flex;
 }
 
 .modal {
   width: 375px;
-  margin: 15% auto auto;
+  margin: auto;
   position: relative;
   text-align: center;
   background: #fff;
