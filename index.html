@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Awesome Startup Employee Directory</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Directory</title>
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  
-</body>
+    <!-- style sheets -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet" />
+
+    <!-- javascript files -->
+    <script src="js/app.js" defer></script>
+  </head>
+
+  <body class="body">
+    <header class="header">
+      <h1 class="h1">Awesome Startup Employee Directory</h1>
+      <input type="filter" name="filter" placeholder="Filter employee" class="filter" id="filter" onkeyup="searchEmployees()" />
+    </header>
+
+    <main class="grid-container">
+      <!-- cards will be added with JS here -->
+    </main>
+    <div class="overlay hidden">
+      <div class="modal">
+        <button class="modal-close">X</button>
+        <div class="modal-content">
+          <!-- modal information will be added with JS here -->
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
-
